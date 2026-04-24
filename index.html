@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Certainty</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="titleScreen">
+            <div class="centerWrap">
+                <h1 id="title">CERTAINTY</h1>
+                <div id="start" class="titleBtn" onclick="page.obj.check.style.left = '-5vw';"><div><div></div></div>Check A Source</div>
+                <div id="about" class="titleBtn" onclick="page.obj.about.style.left = 0;"><div><div></div></div>About This Tool</div>
+            </div>
+        </div>
+        <div id="aboutScreen">
+            <div style="overflow-y: auto; overflow-x: hidden;">
+                <h1 id="smallTitle">ABOUT</h1>
+                <p id="aboutPara">
+                    <span class="txtColorShift">CERTAINTY</span> is a tool designed to make fact checking sources straightforward and easy.
+                    By breaking down the process into to <span class="txtColorShift">quick and understandable questions</span>,
+                    you can check any source <span class="txtColorShift">with ease</span>.<br><br>
+                    <span class="txtColorShift">CERTAINTY</span> puts <span class="txtColorShift">all of the resources at your fingertips</span> and guides you through the process,
+                    then, it uses your answers to determine the likelyhood that your source is misinformation or biased.
+                    Additionally, it <span class="txtColorShift">explains how the conclusion is reached</span>, allowing you to understand why your source is trustworthy or not.
+                </p>
+                <div style="height: 50px;"></div>
+                <div class="centerWrap">
+                    <div id="exitAbout" class="titleBtn" onclick="page.obj.about.style.left = '-105vw';"><div><div></div></div>Return to Menu</div>
+                </div>
+            </div>
+        </div>
+        <div id="checkScreen">
+            <div style="overflow: hidden;">
+                <div id="exitCheck" class="titleBtn" onclick="page.obj.check.style.left = '100vw';">X</div>
+                <div id="prevArrow" class="questionArrow" onclick="changeQuestion(0)"><div></div></div>
+                <div id="nextArrow" class="questionArrow" onclick="changeQuestion(1)"><div></div></div>
+                
+                <div id="Q1" class="question">
+                    <h1 id="smallTitle">QUESTION 1</h1>
+                    <p id="question">Is the author/creator of the source listed?</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q1A1" class="answer" onclick="uncheck(['Q1A2']); check(this, 1, 1, 0); twoPart(1)">
+                        <div class="check"><div></div></div>
+                        <p>Yes</p>
+                    </div>
+                    <div id="Q1A2" class="answer" onclick="uncheck(['Q1A1']); check(this, 1, 2, 0); twoPart(1)">
+                        <div class="check"><div></div></div>
+                        <p>No</p>
+                    </div>
+                    <div class="twoPart">
+                        <div class="break"></div>
+                        <p id="question">If so, is any information about them provided? (a short bio, a link to their social media accounts, their education level/field of study, etc.)</p>
+                        <div class="questionDivider"></div>
+                        <div id="Q1A3" class="answer" onclick="uncheck(['Q1A4']); check(this, 1, 1, 1)">
+                            <div class="check"><div></div></div>
+                            <p>Yes</p>
+                        </div>
+                        <div id="Q1A4" class="answer" onclick="uncheck(['Q1A3']); check(this, 1, 2, 1)">
+                            <div class="check"><div></div></div>
+                            <p>No</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Q2" class="question">
+                    <h1 id="smallTitle">QUESTION 2</h1>
+                    <p id="question">Is the author/creator professional?</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q2A1" class="answer" onclick="uncheck(['Q2A2']); check(this, 2, 1, 0)">
+                        <div class="check"><div></div></div>
+                        <p>The source and creator are very professional</p>
+                    </div>
+                    <div id="Q2A2" class="answer" onclick="uncheck(['Q2A1']); check(this, 2, 2, 0)">
+                        <div class="check"><div></div></div>
+                        <p>The source and creator lack professionalism</p>
+                    </div>
+                    <div class="break"></div>
+                    <p id="question">Does the author/creator seem well-educated on the topic? (check if their credentials are mentioned)</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q2A3" class="answer" onclick="uncheck(['Q2A4', 'Q2A5', 'Q2A6']); check(this, 2, 1, 1)">
+                        <div class="check"><div></div></div>
+                        <p>Unsure</p>
+                    </div>
+                    <div id="Q2A4" class="answer" onclick="uncheck(['Q2A3', 'Q2A5', 'Q2A6']); check(this, 2, 2, 1)">
+                        <div class="check"><div></div></div>
+                        <p>The creator does not seem well-educated on the topic</p>
+                    </div>
+                    <div id="Q2A5" class="answer" onclick="uncheck(['Q2A3', 'Q2A4', 'Q2A6']); check(this, 2, 3, 1)">
+                        <div class="check"><div></div></div>
+                        <p>The creator seems well-educated in fields unrelated to the topic</p>
+                    </div>
+                    <div id="Q2A6" class="answer" onclick="uncheck(['Q2A3', 'Q2A4', 'Q2A5']); check(this, 2, 4, 1)">
+                        <div class="check"><div></div></div>
+                        <p>The creator seems well-educated on the topic</p>
+                    </div>
+                </div>
+
+                <div id="Q3" class="question">
+                    <h1 id="smallTitle">QUESTION 3</h1>
+                    <p id="question">Are there other sources on this topic? Do they share the same information?</p>
+                    <div class="questionDivider"></div>
+                    <div class="wrapper">
+                        <div style="position: absolute; width: calc(43vw - 100px);">
+                            <div id="Q3A1" class="answer" onclick="uncheck(['Q3A2', 'Q3A3']); check(this, 3, 1)">
+                                <div class="check"><div></div></div>
+                                <p>Unable to find additional sources</p>
+                            </div>
+                            <div id="Q3A2" class="answer" onclick="uncheck(['Q3A1', 'Q3A3']); check(this, 3, 2)">
+                                <div class="check"><div></div></div>
+                                <p>There are additional sources, but the information provided is inconsistent between sources</p>
+                            </div>
+                            <div id="Q3A3" class="answer" onclick="uncheck(['Q3A1', 'Q3A2']); check(this, 3, 3)">
+                                <div class="check"><div></div></div>
+                                <p>There are additional sources and the information provided is the same</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; width: calc(43vw - 100px); right: 100px;">
+                            <p style="width: 100%; text-align: left; line-height: 75%; padding-bottom: 20px;">
+                                <span class="txtColorShift">Tips For Finding Sources:</span><br><br>
+                                <span style="font-size: calc(0.6 * clamp(1rem, 3vw, 2rem));">
+                                    Simplify the topic into its most vital parts like time, person/subject, location, and/or event.<br><br>
+                                    For example, you could use a <span style="color: var(--a-blue)">time</span>, <span style="color: var(--a-purple)">location</span>, and <span style="color: var(--a-red)">subject</span> to search "<span style="color: var(--a-blue)">New</span> <span style="color: var(--a-purple)">California</span> <span style="color: var(--a-red)">tax law</span>,"<br><br>
+                                    You could also try a <span style="color: var(--a-blue)">person</span> and a <span style="color: var(--a-red)">subject</span> to search, for example, "<span style="color: var(--a-blue)">Bill Gates</span> <span style="color: var(--a-red)">philanthropy</span>"<br><br>
+                                    When searching for professional research or studies, simply search for the <span style="color: var(--a-blue)">subject</span> followed by "<span style="color: var(--a-red)">study</span>," such as "<span style="color: var(--a-blue)">Crows intelligence</span> <span style="color: var(--a-red)">study</span>"<br><br>
+                                    It can also be beneficial to search for topics on sites known to be trustworthy. For example, <a href="https://en.wikipedia.org/" target="_blank" rel="noopener noreferrer" tabindex="-1">Wikipedia</a> has more than 7 million pages each with a section dedicated to citing the sources used, and <a href="https://www.britannica.com/" target="_blank" rel="noopener noreferrer" tabindex="-1">Britannica</a> has over 100 full time editors reviewing their encyclopedia.<br><br>
+                                    For breaking news stories, <a href="https://www.reuters.com/" target="_blank" rel="noopener noreferrer" tabindex="-1">Reuters</a> is a notably reliable news agency remarked for being very unbiased. Generally, however, the more sources you can find for a story, the better, so if you have the time, check other news sites as well.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="Q4" class="question">
+                    <h1 id="smallTitle">QUESTION 4</h1>
+                    <p id="question">Does the source quote experts/other sources, or use statistics from studies?</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q4A1" class="answer" onclick="uncheck(['Q4A2']); check(this, 4, 1, 0); twoPart(4)">
+                        <div class="check"><div></div></div>
+                        <p>Yes</p>
+                    </div>
+                    <div id="Q4A2" class="answer" onclick="uncheck(['Q4A1']); check(this, 4, 2, 0); twoPart(4)">
+                        <div class="check"><div></div></div>
+                        <p>No</p>
+                    </div>
+                    <div class="twoPart">
+                        <div class="break"></div>
+                        <p id="question">Are there links or citations for the additional sources or studies?</p>
+                        <div class="questionDivider"></div>
+                        <div id="Q4A3" class="answer" onclick="uncheck(['Q4A4']); check(this, 4, 1, 1)">
+                            <div class="check"><div></div></div>
+                            <p>Yes</p>
+                        </div>
+                        <div id="Q4A4" class="answer" onclick="uncheck(['Q4A3']); check(this, 4, 2, 1)">
+                            <div class="check"><div></div></div>
+                            <p>No</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Q5" class="question">
+                    <h1 id="smallTitle">QUESTION 5</h1>
+                    <p id="question">How credible are additional sources cited by the source?</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q5A1" class="answer" onclick="uncheck(['Q5A2', 'Q5A3']); check(this, 5, 1)">
+                        <div class="check"><div></div></div>
+                        <p>There are no additional sources, or they are not cited</p>
+                    </div>
+                    <div id="Q5A2" class="answer" onclick="uncheck(['Q5A1', 'Q5A3']); check(this, 5, 2)">
+                        <div class="check"><div></div></div>
+                        <p>The additional sources seem reputable (like academic studies, expert interviews, government sites, etc.)</p>
+                    </div>
+                    <div id="Q5A3" class="answer" onclick="uncheck(['Q5A1', 'Q5A2']); check(this, 5, 3)">
+                        <div class="check"><div></div></div>
+                        <p>The additional sources are of unknown or questionable origin</p>
+                    </div>
+                </div>
+
+                <div id="Q6" class="question">
+                    <h1 id="smallTitle">QUESTION 6</h1>
+                    <p id="question">Through what platform/method was this source published?</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q6A1" class="answer" onclick="uncheck(['Q6A2', 'Q6A3', 'Q6A4', 'Q6A5', 'Q6A6']); check(this, 6, 1)">
+                        <div class="check"><div></div></div>
+                        <p>A social media platform (Instagram, X, Bluesky, Facebook, etc.)</p>
+                    </div>
+                    <div id="Q6A2" class="answer" onclick="uncheck(['Q6A1', 'Q6A3', 'Q6A4', 'Q6A5', 'Q6A6']); check(this, 6, 2)">
+                        <div class="check"><div></div></div>
+                        <p>A newspaper, news website, or other news channel</p>
+                    </div>
+                    <div id="Q6A3" class="answer" onclick="uncheck(['Q6A1', 'Q6A2', 'Q6A4', 'Q6A5', 'Q6A6']); check(this, 6, 3)">
+                        <div class="check"><div></div></div>
+                        <p>An academic publication such as a formal study or research paper</p>
+                    </div>
+                    <div id="Q6A4" class="answer" onclick="uncheck(['Q6A1', 'Q6A2', 'Q6A3', 'Q6A5', 'Q6A6']); check(this, 6, 4)">
+                        <div class="check"><div></div></div>
+                        <p>A physical publishing medium such as a book or magazine</p>
+                    </div>
+                    <div id="Q6A5" class="answer" onclick="uncheck(['Q6A1', 'Q6A2', 'Q6A3', 'Q6A4', 'Q6A6']); check(this, 6, 5)">
+                        <div class="check"><div></div></div>
+                        <p>Within a forum/discussion (such as topic-dedicated forums like Reddit or Stack Overflow)</p>
+                    </div>
+                    <div id="Q6A6" class="answer" onclick="uncheck(['Q6A1', 'Q6A2', 'Q6A3', 'Q6A4', 'Q6A5']); check(this, 6, 6)">
+                        <div class="check"><div></div></div>
+                        <p>A self-published format (personal website, blog post, podcast, etc.)</p>
+                    </div>
+                </div>
+
+                <div id="Q7" class="question">
+                    <h1 id="smallTitle">QUESTION 7</h1>
+                    <p id="question">What is the author's purpose in creating this source? (Select all that apply)</p>
+                    <div class="questionDivider"></div>
+                    <div id="Q7A1" class="answer" onclick="check(this, 7, 1, 0)">
+                        <div class="check"><div></div></div>
+                        <p>To persuade or convince you of something</p>
+                    </div>
+                    <div id="Q7A2" class="answer" onclick="check(this, 7, 2, 1)">
+                        <div class="check"><div></div></div>
+                        <p>To inform or educate you on a topic</p>
+                    </div>
+                    <div id="Q7A3" class="answer" onclick="check(this, 7, 3, 2)">
+                        <div class="check"><div></div></div>
+                        <p>To provide entertaining content</p>
+                    </div>
+                    <div id="Q7A4" class="answer" onclick="check(this, 7, 4, 3)">
+                        <div class="check"><div></div></div>
+                        <p>To sell you a product or service</p>
+                    </div>
+                </div>
+
+                <div id="Q8" class="question">
+                    <h1 id="smallTitle">Chance This Source Is Misinformation: <span class="txtColorShift">Very Low</span></h1>
+                    <p id="question" style="text-align: left;">
+                        <span class="q1">
+                            <br>In <span>Question 1</span>, <span class="implicit">you said this, which implies...</span>
+                        </span>
+                    </p>
+                    <div class="questionDivider"></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
