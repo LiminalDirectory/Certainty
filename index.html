@@ -3,6 +3,7 @@
     <head>
         <title>Certainty</title>
         <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="\assets\favicon.png" rel="icon">
     </head>
     <body>
         <div id="titleScreen">
@@ -31,7 +32,7 @@
         </div>
         <div id="checkScreen">
             <div style="overflow: hidden;">
-                <div id="exitCheck" class="titleBtn" onclick="page.obj.check.style.left = '100vw';">X</div>
+                <div id="exitCheck" class="titleBtn" onclick="page.obj.check.style.left = '100vw'; reset();">X</div>
                 <div id="prevArrow" class="questionArrow" onclick="changeQuestion(0)"><div></div></div>
                 <div id="nextArrow" class="questionArrow" onclick="changeQuestion(1)"><div></div></div>
                 
@@ -213,15 +214,15 @@
                         <div class="check"><div></div></div>
                         <p>To persuade or convince you of something</p>
                     </div>
-                    <div id="Q7A2" class="answer" onclick="check(this, 7, 2, 1)">
+                    <div id="Q7A2" class="answer" onclick="check(this, 7, 1, 1)">
                         <div class="check"><div></div></div>
                         <p>To inform or educate you on a topic</p>
                     </div>
-                    <div id="Q7A3" class="answer" onclick="check(this, 7, 3, 2)">
+                    <div id="Q7A3" class="answer" onclick="check(this, 7, 1, 2)">
                         <div class="check"><div></div></div>
                         <p>To provide entertaining content</p>
                     </div>
-                    <div id="Q7A4" class="answer" onclick="check(this, 7, 4, 3)">
+                    <div id="Q7A4" class="answer" onclick="check(this, 7, 1, 3)">
                         <div class="check"><div></div></div>
                         <p>To sell you a product or service</p>
                     </div>
@@ -229,12 +230,31 @@
 
                 <div id="Q8" class="question">
                     <h1 id="smallTitle">Chance This Source Is Misinformation: <span class="txtColorShift">Very Low</span></h1>
-                    <p id="question" style="text-align: left;">
+                    <p id="question">It is unlikely that this source is misinformation</p>
+                    <div class="questionDivider"></div>
+                    <p id="question" class="Q8Para" style="text-align: left; line-height: 95%; font-size: calc(0.7 * clamp(1rem, 3vw, 2rem)); padding-bottom: 70px;">
                         <span class="q1">
-                            <br>In <span>Question 1</span>, <span class="implicit">you said this, which implies...</span>
+                            <br>In <span>Question 1</span>, <span class="implicit">you said this, which implies...</span><br>
+                        </span>
+                        <span class="q2">
+                            <br>In <span>Question 2</span>, <span class="implicit">you said this, which implies...</span><br>
+                        </span>
+                        <span class="q3">
+                            <br>In <span>Question 3</span>, <span class="implicit">you said this, which implies...</span><br>
+                        </span>
+                        <span class="q4">
+                            <br>In <span>Question 4</span>, <span class="implicit">you said this, which implies...</span><br>
+                        </span>
+                        <span class="q5">
+                            <br>In <span>Question 5</span>, <span class="implicit">you said this, which implies...</span><br>
+                        </span>
+                        <span class="q6">
+                            <br>In <span>Question 6</span>, <span class="implicit">you said this, which implies...</span><br>
+                        </span>
+                        <span class="q7">
+                            <br>In <span>Question 7</span>, you stated the author's purpose(s) in creating this source. <span class="implicit">You said this, which implies...</span><br>
                         </span>
                     </p>
-                    <div class="questionDivider"></div>
                 </div>
                 
             </div>
