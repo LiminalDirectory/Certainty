@@ -123,7 +123,7 @@ function results() {
     ][page.answers[1][0] - 1];
     document.querySelector("#Q8>.Q8Para>.q2>.implicit").innerHTML = [
         "you said the author was very professional. Trustworthy sources are often more professional compared to those spreading misinformation, so the professionalism of the author/creator of a source is a good sign.",
-        "you said the author lacked professionalism. Sources spreading misinformationtend to be less professional compared to trustworthy sources, so an author/creator lacking professionalism could be a red flag."
+        "you said the author lacked professionalism. Sources spreading misinformation tend to be less professional compared to trustworthy sources, so an author/creator lacking professionalism could be a red flag."
     ][page.answers[2][0] - 1] + [
         " You also answered that you were unsure of how well educated the author is. Generally, any credentials or proof of the author's expertise goes a long way in validating a source. Similarly, if the author has credentials completely unrelated to the topic (such as a financial advisor giving health advice), that makes a source less trustworthy.",
         " You also answered that the author did not seem well educated on the source's topic. Generally, any credentials or proof of the author's expertise goes a long way in validating a source. Similarly, if the author has credentials completely unrelated to the topic (such as a financial advisor giving health advice) or if they lack credentials altogether, that makes a source less trustworthy.",
